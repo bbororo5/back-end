@@ -1,7 +1,6 @@
 package com.example.moviewbackend.controller;
 
 import com.example.moviewbackend.jwt.JwtUtil;
-import com.example.moviewbackend.service.KakaoService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;

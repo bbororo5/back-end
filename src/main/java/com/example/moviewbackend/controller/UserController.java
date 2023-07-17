@@ -4,7 +4,6 @@ package com.example.moviewbackend.controller;
 import com.example.moviewbackend.dto.ApiResponseDto;
 import com.example.moviewbackend.dto.SignupRequestDto;
 import com.example.moviewbackend.jwt.JwtUtil;
-import com.example.moviewbackend.service.KakaoService;
 import com.example.moviewbackend.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;

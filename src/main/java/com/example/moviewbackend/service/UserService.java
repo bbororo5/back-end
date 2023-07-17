@@ -5,6 +5,8 @@ import com.example.moviewbackend.entity.User;
 import com.example.moviewbackend.entity.UserRoleEnum;
 import com.example.moviewbackend.jwt.JwtUtil;
 import com.example.moviewbackend.repository.UserRepository;
+import io.jsonwebtoken.Claims;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
