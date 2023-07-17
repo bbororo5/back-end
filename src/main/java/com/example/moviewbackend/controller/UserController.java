@@ -4,12 +4,14 @@ package com.example.moviewbackend.controller;
 import com.example.moviewbackend.dto.ApiResponseDto;
 import com.example.moviewbackend.dto.SignupRequestDto;
 import com.example.moviewbackend.jwt.JwtUtil;
+import com.example.moviewbackend.security.UserDetailsImpl;
 import com.example.moviewbackend.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserService userService;
     private final JwtUtil jwtUtil;
-    private final KakaoService kakaoService;
+//    private final KakaoService kakaoService;
 
     @PostMapping("/signup")
     public ResponseEntity<ApiResponseDto> signUp(@Valid @RequestBody SignupRequestDto requestDto) {
@@ -28,8 +30,8 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ApiResponseDto> withdrawal(@PathVariable Long id, HttpServletRequest request) {
-        userService.withdrawal(id, request);
+    public ResponseEntity<ApiResponseDto> withdrawal(@AuthenticationPrincipal UserDetailsImpl userDetails) {
+        userService.withdrawal();
 
         return ResponseEntity.ok().body(new ApiResponseDto("회원탈퇴 성공"));
     }
