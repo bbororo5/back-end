@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.util.ArrayList;
@@ -38,6 +37,9 @@ public class Review extends Timestamped {
 
     @OneToMany(mappedBy = "review", cascade = CascadeType.REMOVE)
     private List<Like> likes = new ArrayList<>();
+
+    @OneToMany(mappedBy = "review", cascade = CascadeType.REMOVE)
+    private List<Comment> Comments = new ArrayList<>();
 
     @Column(nullable = false)
     @ColumnDefault("0")
